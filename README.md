@@ -1,34 +1,47 @@
 # Particle Simulation
 
-This C++ program simulates and visualizes particle movement in a 3D environment. It utilizes Verlet integration for accurate particle movement, supports various features such as gravity, boundary conditions, and parallel processing using OpenMP for faster execution. The simulation provides a basic console-based visualization of particle positions in real-time.
+This repository contains a simple particle simulation implemented in C++. The simulation models the behavior of multiple point particles in a three-dimensional space under the influence of gravity and periodic boundary conditions.
 
-## Getting Started
+## Features
 
-To run the simulation locally, follow these steps:
+- **Particle Class**: Represents a point particle with attributes such as position, velocity, and mass.
+- **Simulation Class**: Manages the simulation environment, including particle initialization, time-stepping, and boundary conditions.
+- **Visualization**: Provides a basic console-based visualization of particle positions.
+- **Verlet Integration**: Utilizes Verlet integration for updating particle positions.
 
-1. Clone the repository to your local machine:
+## How to Use
 
-    ```sh
-    git clone https://github.com/SteveProkovas/Particle-Simulation.git
-    ```
+1. **Clone the Repository**:
+   ```
+   git clone https://github.com/SteveProkovas/Particle-Simulation.git
+   ```
 
-2. Compile the code using a C++ compiler with OpenMP support:
+2. **Compile the Code**:
+   ```
+   g++ -std=c++11 -fopenmp main.cpp -o particle_simulation
+   ```
 
-    ```sh
-    g++ -o particle_simulation particle_simulation.cpp -fopenmp
-    ```
+3. **Run the Simulation**:
+   ```
+   ./particle_simulation
+   ```
 
-3. Run the executable:
+4. **Visualize the Simulation**:
+   The simulation will run for a specified number of steps (default: 5) with a time step of 0.1 seconds. After each step, the particle positions will be visualized in a console-based grid.
 
-    ```sh
-    ./particle_simulation
-    ```
+## Customization
 
-4. Experiment with parameters in the code to customize the simulation as needed.
+- **Number of Particles**: You can modify the number of particles in the simulation by changing the value passed to the `Simulation` constructor in the `main` function.
+- **Simulation Parameters**: You can adjust the number of simulation steps and the time step (`dt`) in the `main` function as per your requirements.
+
+## Dependencies
+
+- **C++ Compiler**: The code is written in C++ and requires a compatible compiler (e.g., GCC, Clang).
+- **OpenMP**: The code uses OpenMP for parallelization. Ensure that your compiler supports OpenMP.
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to the project, feel free to open an issue or submit a pull request.
+Contributions are welcome! If you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
 ## License
 
