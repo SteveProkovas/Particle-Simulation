@@ -2,9 +2,6 @@
 #include <vector>
 #include <memory>
 #include <random>
-#include <cmath>
-#include <unordered_map>
-#include <omp.h>
 
 // Particle class representing a point particle in space
 class Particle {
@@ -66,7 +63,7 @@ public:
 
             // Apply gravity
             applyGravity(particles_[i]);
-            
+
             // Apply boundary conditions
             applyBoundaryConditions(particles_[i]);
         }
@@ -80,6 +77,11 @@ public:
         }
     }
 
+    // Method to get particles
+    const std::vector<std::unique_ptr<Particle>>& getParticles() const {
+        return particles_;
+    }
+
 private:
     int numParticles_;
     std::vector<std::unique_ptr<Particle>> particles_;
@@ -89,7 +91,7 @@ private:
         // Example: Applying constant downward gravity
         constexpr double gravity = 9.81; // m/s^2
         double force = particle->getMass() * gravity;
-        particle->setVelocity(particle->getVX(), particle->getVY() - force, particle->getVZ());
+        particle->setVelocity(particle->getVX(), particle->getVY(), particle->getVZ() - force);
     }
 
     // Apply boundary conditions to keep particles within the simulation space
